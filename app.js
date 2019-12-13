@@ -9,28 +9,14 @@ app.use(express.static('public'));
 
 app.get('/' , (req, res, next) =>{
     console.log(req);
-    res.send('<h1>Welcome ironhacker</h1>');
+    console.log(__dirname);
+    res.sendFile(__dirname + '/views/home-page.html');
 
 })
 //Create a new rute
 app.get('/cat' , (req,res, next) =>{
-    res.send(`
-    <!doctype html>
-    <html>
-        <head>
-            <meta charset ="utf-8">
-            <title>Cat</title>
-            <link rel = "stylesheet" href ="/stylesheet/styele.css"/>   
-        </head>
-        <body>
-            <h1>Cat image</h1>
-            <p>This is my second rute</p>
-            <img src="/images/cool-cat.jpg"/>
-        </body>
-
-    </html>
-    `)
-})
+    res.sendFile(__dirname + 'views/cat-page.html');
+});
 
 //Server started
 app.listen(3000 , () =>{
